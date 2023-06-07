@@ -11,6 +11,13 @@ export default {
       url: 'https://testnet.era.zksync.dev',
       ethNetwork: 'https://www.noderpc.xyz/rpc-goerli/public', // RPC URL of the network (e.g. `https://goerli.infura.io/v3/<API_KEY>`)
       zksync: true,
+      verifyURL: 'https://zksync2-testnet-explorer.zksync.dev/contract_verification',
+    },
+    zkSync: {
+      url: 'https://mainnet.era.zksync.io',
+      ethNetwork: 'mainnet',
+      zksync: true,
+      verifyURL: 'https://zksync2-mainnet-explorer.zksync.dev/contract_verification',
     },
     hardhat: {
       allowUnlimitedContractSize: false,
@@ -63,7 +70,7 @@ export default {
     compilerSource: 'binary',
     settings: {},
   },
-  defaultNetwork: 'zkSyncTestnet',
+  defaultNetwork: process.env.ZK === 'true' ? 'zkSyncTestnet' : 'hardhat',
   solidity: {
     version: '0.7.6',
     settings: {
